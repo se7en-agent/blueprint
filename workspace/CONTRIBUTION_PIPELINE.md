@@ -19,6 +19,11 @@ Se7en-owned writeback repositories:
 
 Do not scan, start, submit, or modify unrelated contribution projects during scheduled jobs unless the user explicitly changes the focus. The Se7en-owned repos are for self-maintenance and writeback, not the primary contribution target.
 
+Dedicated workspace snapshot sync:
+
+- `blueprint-daily-workspace-sync` runs every day at `10:15 America/Los_Angeles`.
+- The job syncs `/root/.openclaw/workspace` into `/root/.openclaw/workspace/repos/blueprint/workspace` with public-safe exclusions, then commits and pushes safe changes.
+
 ## Daily Loop
 
 1. Check the active project repo and Se7en-owned writeback repos for local changes before pulling.

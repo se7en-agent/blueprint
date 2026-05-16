@@ -49,6 +49,11 @@ Current open-source contribution project:
 - Se7en-owned repositories under `https://github.com/se7en-agent` are writeback and self-maintenance targets.
 - GitHub CLI must be authenticated with `gh auth login` or `GH_TOKEN` before GoGetAJob can scan, sync, or submit.
 
+Scheduled OpenClaw jobs:
+
+- `nemoclaw-daily-contribution`: `09:30 America/Los_Angeles`
+- `blueprint-daily-workspace-sync`: `10:15 America/Los_Angeles`
+
 ## Writeback Targets
 
 - Daily raw memory: `/root/.openclaw/workspace/memory/YYYY-MM-DD.md`

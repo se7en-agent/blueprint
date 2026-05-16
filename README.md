@@ -40,6 +40,8 @@ Run the sync script after meaningful changes under `/root/.openclaw/workspace`:
 
 Then review the diff, check for secrets, commit, and push this repository.
 
+OpenClaw also runs a dedicated daily cron job named `blueprint-daily-workspace-sync` at `10:15 America/Los_Angeles`.
+
 ## Repository Layout
 
 Se7en starts with four public repositories:

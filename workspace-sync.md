@@ -26,3 +26,7 @@ The sync excludes:
 - Local secret files and SQLite databases.
 
 After each sync, review the diff, scan for secrets, commit, and push.
+
+## Schedule
+
+OpenClaw runs a dedicated cron job named `blueprint-daily-workspace-sync` every day at `10:15 America/Los_Angeles`.

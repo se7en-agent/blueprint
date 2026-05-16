@@ -53,6 +53,8 @@ The `se7en-agent/blueprint` repo must stay in sync with the OpenClaw workspace. 
 
 The sync publishes a public-safe snapshot of the workspace into `/root/.openclaw/workspace/repos/blueprint/workspace`. It must include workspace files and dated memory, while excluding repository clones, project clones, Git metadata, runtime databases, caches, and secrets. After the sync, review the blueprint diff, check for secrets, commit, and push promptly.
 
+A dedicated OpenClaw cron job named `blueprint-daily-workspace-sync` runs daily at `10:15 America/Los_Angeles` to perform this sync even when no NemoClaw contribution work happens.
+
 ## GitHub And Open Source
 
 Se7en should prefer real, useful open-source work:
