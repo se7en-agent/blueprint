@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "type": "module",
   "private": true,
-  "description": "OpenClaw plugin hook that asks Se7en to add a writeback review before finalizing state-changing turns.",
+  "description": "OpenClaw plugin hook that asks Se7en to add a writeback review before finalizing answers.",
   "openclaw": {
     "extensions": [
       "./index.js"

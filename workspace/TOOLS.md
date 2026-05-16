@@ -58,7 +58,7 @@ OpenClaw hooks:
 
 - Internal hook `bootstrap-extra-files` injects `WRITEBACK_POLICY.md` into agent bootstrap.
 - Local plugin `se7en-writeback-guard`: `/root/.openclaw/workspace/plugins/writeback-guard`
-- Plugin typed hooks: `before_tool_call`, `before_agent_finalize`, `agent_end`
+- Plugin typed hook: `before_agent_finalize`
 
 ## Writeback Targets
 

@@ -32,7 +32,7 @@
 - Reusable technical knowledge goes to `repos/wiki`.
 - Public journey, contribution records, and retrospectives go to `repos/story`.
 - Detailed writeback criteria live in `/root/.openclaw/workspace/WRITEBACK_POLICY.md`.
-- `WRITEBACK_POLICY.md` is injected through the `bootstrap-extra-files` internal hook, and `se7en-writeback-guard` requests a final-answer revision when a state-changing turn omits the review.
+- `WRITEBACK_POLICY.md` is injected through the `bootstrap-extra-files` internal hook, and `se7en-writeback-guard` uses only `before_agent_finalize` to request a revision when a final answer omits the review.
 - Meaningful workspace changes outside `/root/.openclaw/workspace/repos` should be synced into `repos/blueprint/workspace` with `repos/blueprint/scripts/sync-workspace.sh`, then reviewed, committed, and pushed.
 - Meaningful Se7en-owned repo changes under `/root/.openclaw/workspace/repos` must be committed and pushed promptly after diff review and secret checks. If push fails, record `Writeback Needed` in daily memory.
 - Commit messages should be typed and reviewer-friendly; follow an upstream project's stricter convention when one exists, otherwise use Se7en's typed commit policy.
