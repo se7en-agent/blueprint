@@ -19,10 +19,7 @@ const STATEFUL_TOOL_PATTERNS = [
 
 const REVIEW_PATTERNS = [
   /writeback review/i,
-  /writeback\s*[:：]/i,
-  /回写评估/,
-  /写回评估/,
-  /是否.*wiki.*story/i,
+  /writeback\s*:/i,
   /memory.*wiki.*story.*blueprint.*profile/is,
 ];
 
