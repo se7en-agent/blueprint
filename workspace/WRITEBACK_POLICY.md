@@ -16,6 +16,13 @@ Before finishing any task, check:
 
 For state-changing work, record the decision in `/root/.openclaw/workspace/memory/YYYY-MM-DD.md`.
 
+## Enforcement
+
+OpenClaw enforces this policy in two layers:
+
+- The internal `bootstrap-extra-files` hook injects `WRITEBACK_POLICY.md` into agent bootstrap context.
+- The local `se7en-writeback-guard` plugin registers `before_tool_call`, `before_agent_finalize`, and `agent_end` hooks. If a turn uses a state-changing tool and reaches finalization without a writeback review, the plugin asks the model for one bounded revision before finalizing.
+
 ## Update Wiki When
 
 Update `/root/.openclaw/workspace/repos/wiki` when the task produced reusable technical knowledge, such as:

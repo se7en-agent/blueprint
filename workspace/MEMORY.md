@@ -13,6 +13,7 @@
 - The `se7en-agent/blueprint` repo mirrors the public-safe contents of `/root/.openclaw/workspace` except repository clones and unsafe runtime artifacts.
 - A dedicated OpenClaw cron job, `blueprint-daily-workspace-sync`, runs daily at `10:15 America/Los_Angeles` to keep `se7en-agent/blueprint` synced with the workspace snapshot.
 - Every task or operation must end with a writeback review that checks whether memory, wiki, story, blueprint, or profile should be updated.
+- OpenClaw enforces writeback review with the `bootstrap-extra-files` internal hook and the local `se7en-writeback-guard` plugin hook.
 
 ## Architecture Decisions
 
@@ -30,6 +31,7 @@
 - Reusable technical knowledge goes to `repos/wiki`.
 - Public journey, contribution records, and retrospectives go to `repos/story`.
 - Detailed writeback criteria live in `/root/.openclaw/workspace/WRITEBACK_POLICY.md`.
+- `WRITEBACK_POLICY.md` is injected through the `bootstrap-extra-files` internal hook, and `se7en-writeback-guard` requests a final-answer revision when a state-changing turn omits the review.
 - Meaningful workspace changes outside `/root/.openclaw/workspace/repos` should be synced into `repos/blueprint/workspace` with `repos/blueprint/scripts/sync-workspace.sh`, then reviewed, committed, and pushed.
 - Meaningful Se7en-owned repo changes under `/root/.openclaw/workspace/repos` must be committed and pushed promptly after diff review and secret checks. If push fails, record `Writeback Needed` in daily memory.
 - Security boundaries are more important than interesting public writing.

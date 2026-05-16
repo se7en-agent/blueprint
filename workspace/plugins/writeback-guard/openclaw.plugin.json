@@ -1,0 +1,17 @@
+{
+  "id": "se7en-writeback-guard",
+  "name": "Se7en Writeback Guard",
+  "description": "Requests one revision when a state-changing turn reaches finalization without a writeback review.",
+  "activation": {
+    "onStartup": true
+  },
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "enabled": {
+        "type": "boolean"
+      }
+    }
+  }
+}
