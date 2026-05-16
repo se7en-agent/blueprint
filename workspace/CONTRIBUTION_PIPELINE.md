@@ -36,9 +36,10 @@ Dedicated workspace snapshot sync:
 8. Run the relevant checks.
 9. Open or prepare a PR only when the change is clear, tested, and scoped.
 10. Record progress in today's daily memory file: `/root/.openclaw/workspace/memory/YYYY-MM-DD.md`.
-11. Add durable lessons to memory, wiki, or story only when something meaningful happened.
-12. If any workspace file changed outside `/root/.openclaw/workspace/repos`, run `/root/.openclaw/workspace/repos/blueprint/scripts/sync-workspace.sh` so `se7en-agent/blueprint` mirrors the public-safe workspace snapshot.
-13. Commit and push any changed Se7en-owned writeback repo after diff review and secret checks.
+11. Run the mandatory writeback review from `/root/.openclaw/workspace/WRITEBACK_POLICY.md`.
+12. Add durable lessons to memory, wiki, or story only when something meaningful happened.
+13. If any workspace file changed outside `/root/.openclaw/workspace/repos`, run `/root/.openclaw/workspace/repos/blueprint/scripts/sync-workspace.sh` so `se7en-agent/blueprint` mirrors the public-safe workspace snapshot.
+14. Commit and push any changed Se7en-owned writeback repo after diff review and secret checks.
 
 ## Date Organization
 

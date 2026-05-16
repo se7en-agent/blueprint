@@ -23,7 +23,7 @@ Required exclusions:
 
 Routine:
 
-1. Read `/root/.openclaw/workspace/AGENTS.md`, `/root/.openclaw/workspace/MEMORY.md`, and `/root/.openclaw/workspace/repos/blueprint/workspace-sync.md`.
+1. Read `/root/.openclaw/workspace/AGENTS.md`, `/root/.openclaw/workspace/MEMORY.md`, `/root/.openclaw/workspace/WRITEBACK_POLICY.md`, and `/root/.openclaw/workspace/repos/blueprint/workspace-sync.md`.
 2. Check blueprint status with `git -C /root/.openclaw/workspace/repos/blueprint status --short --branch`.
 3. If blueprint has unrelated local changes before sync, inspect them and preserve them. Do not overwrite user changes.
 4. Run `/root/.openclaw/workspace/repos/blueprint/scripts/sync-workspace.sh`.
@@ -32,7 +32,8 @@ Routine:
 7. Confirm excluded paths are absent from `/root/.openclaw/workspace/repos/blueprint/workspace`.
 8. If there are no blueprint changes after sync, record a short note in the current daily memory file and stop.
 9. If there are safe blueprint changes, commit them with a concise message and push `main` to `origin`.
-10. If commit or push fails, add a `Writeback Needed` entry to the current daily memory file with the repo, branch, reason, and next action.
+10. Run the mandatory writeback review. Routine blueprint syncs usually do not update wiki or story unless the sync captured an operating-model change or public milestone.
+11. If commit or push fails, add a `Writeback Needed` entry to the current daily memory file with the repo, branch, reason, and next action.
 
 Final response should include:
 
@@ -40,3 +41,4 @@ Final response should include:
 - Secret-scan result.
 - Commit SHA if committed.
 - Push status or blocker.
+- Writeback review result for wiki and story.

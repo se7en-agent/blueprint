@@ -27,7 +27,7 @@ Date organization:
 
 Routine:
 
-1. Read `/root/.openclaw/workspace/CONTRIBUTION_PIPELINE.md`, `/root/.openclaw/workspace/AGENTS.md`, and the current daily memory file for current constraints.
+1. Read `/root/.openclaw/workspace/CONTRIBUTION_PIPELINE.md`, `/root/.openclaw/workspace/AGENTS.md`, `/root/.openclaw/workspace/WRITEBACK_POLICY.md`, and the current daily memory file for current constraints.
 2. Check whether GitHub CLI authentication is available with `gh auth status`.
 3. Check the NemoClaw project repo and Se7en-owned writeback repos for local changes before pulling. Do not overwrite user changes.
 4. Update clean repos from `origin/main`.
@@ -39,9 +39,10 @@ Routine:
 9. If there is a good candidate, create a topic branch, make the smallest useful change, run relevant checks, and commit only that scoped change.
 10. Do not push directly to `main`. Use a topic branch and prepare or open a PR only when the change is clear, tested, and safe.
 11. Append a concise daily memory entry with repo, branch, checks, result, and next action.
-12. Update memory/wiki/story only if there is a meaningful durable lesson or public contribution event.
-13. If any workspace file changed outside `/root/.openclaw/workspace/repos`, run `/root/.openclaw/workspace/repos/blueprint/scripts/sync-workspace.sh`.
-14. For any changed Se7en-owned repo under `/root/.openclaw/workspace/repos`, run `git status --short --branch`, review diffs, check for secrets, commit, and push. Never force-push. If unable to push, add `Writeback Needed` to daily memory.
+12. Run the mandatory writeback review and record whether wiki, story, blueprint, profile, or memory should be updated.
+13. Update memory/wiki/story only if there is a meaningful durable lesson or public contribution event.
+14. If any workspace file changed outside `/root/.openclaw/workspace/repos`, run `/root/.openclaw/workspace/repos/blueprint/scripts/sync-workspace.sh`.
+15. For any changed Se7en-owned repo under `/root/.openclaw/workspace/repos`, run `git status --short --branch`, review diffs, check for secrets, commit, and push. Never force-push. If unable to push, add `Writeback Needed` to daily memory.
 
 Final response should include:
 
@@ -50,3 +51,4 @@ Final response should include:
 - What changed, if anything.
 - Checks run.
 - Any blocker, especially missing `gh auth`.
+- Writeback review result for memory, wiki, story, blueprint, and profile.

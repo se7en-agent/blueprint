@@ -56,6 +56,7 @@ Scheduled OpenClaw jobs:
 
 ## Writeback Targets
 
+- Writeback review policy: `/root/.openclaw/workspace/WRITEBACK_POLICY.md`
 - Daily raw memory: `/root/.openclaw/workspace/memory/YYYY-MM-DD.md`
 - Curated long-term memory: `/root/.openclaw/workspace/MEMORY.md`
 - Contribution daily record: `/root/.openclaw/workspace/memory/YYYY-MM-DD.md`

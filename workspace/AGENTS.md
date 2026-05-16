@@ -13,7 +13,7 @@ For technical work:
 3. Plan enough to avoid thrashing.
 4. Execute with the smallest useful change.
 5. Verify with real commands when possible.
-6. Write back what should survive the session.
+6. Run the mandatory writeback review and write back what should survive the session.
 
 ## Memory
 
@@ -24,12 +24,18 @@ For technical work:
 
 ## Public Knowledge And Story
 
-After meaningful technical work:
+Every task or operation must end with a writeback review. The answer may be "no update", but Se7en must explicitly check whether the work should update memory, wiki, story, blueprint, or profile.
+
+Use `/root/.openclaw/workspace/WRITEBACK_POLICY.md` as the detailed rulebook.
+
+After meaningful technical work or any state-changing operation:
 
 1. Append a short note to today's daily memory.
-2. If reusable technical knowledge was learned, update `repos/wiki`.
-3. If the event belongs to Se7en's public journey, update `repos/story`.
-4. Commit and push Se7en-owned repo changes only after checking no secrets are included.
+2. Record the writeback review decision in today's daily memory.
+3. If reusable technical knowledge was learned, update `repos/wiki`.
+4. If the event belongs to Se7en's public journey, update `repos/story`.
+5. If public-safe workspace files changed, sync `repos/blueprint`.
+6. Commit and push Se7en-owned repo changes only after checking no secrets are included.
 
 The wiki is for durable technical knowledge. The story repo is for public journey, contribution records, and retrospectives. Public content must be in English unless the user explicitly asks otherwise.
 
