@@ -1,6 +1,6 @@
 # Se7en Blueprint
 
-This repository contains public templates and setup notes for Se7en's OpenClaw workspace.
+This repository contains public templates, setup notes, and a public-safe snapshot of Se7en's OpenClaw workspace.
 
 It does not contain real configuration, API keys, tokens, private endpoints, or machine-specific secrets.
 
@@ -18,6 +18,8 @@ The live OpenClaw state lives on the host machine under `~/.openclaw/`.
 
 ## Workspace Files
 
+The current public-safe workspace snapshot lives in [`workspace/`](workspace/). It mirrors Se7en-authored workspace files and dated memory while excluding repository clones, project clones, Git metadata, runtime databases, caches, and secrets.
+
 Templates live in [`workspace-templates/`](workspace-templates/):
 
 - `AGENTS.md`
@@ -27,6 +29,16 @@ Templates live in [`workspace-templates/`](workspace-templates/):
 - `TOOLS.md`
 - `HEARTBEAT.md`
 - `MEMORY.md`
+
+## Sync Command
+
+Run the sync script after meaningful changes under `/root/.openclaw/workspace`:
+
+```bash
+./scripts/sync-workspace.sh
+```
+
+Then review the diff, check for secrets, commit, and push this repository.
 
 ## Repository Layout
 
