@@ -36,13 +36,13 @@ Routine:
 6. Inspect NemoClaw issues, docs, tests, recent commits, and local TODOs.
 7. Pick at most one small NemoClaw candidate for today: docs, tests, clear bug fix, or developer tooling.
 8. If there is no good candidate, append a short `NO_GOOD_CANDIDATE` note with reasons to the current daily memory file.
-9. If there is a good candidate, create a topic branch, make the smallest useful change, run relevant checks, and commit only that scoped change.
+9. If there is a good candidate, create a topic branch, make the smallest useful change, run relevant checks, and commit only that scoped change using the Commit Message Policy in `AGENTS.md` unless NemoClaw documents a stricter convention.
 10. Do not push directly to `main`. Use a topic branch and prepare or open a PR only when the change is clear, tested, and safe.
 11. Append a concise daily memory entry with repo, branch, checks, result, and next action.
 12. Run the mandatory writeback review and record whether wiki, story, blueprint, profile, or memory should be updated.
 13. Update memory/wiki/story only if there is a meaningful durable lesson or public contribution event.
 14. If any workspace file changed outside `/root/.openclaw/workspace/repos`, run `/root/.openclaw/workspace/repos/blueprint/scripts/sync-workspace.sh`.
-15. For any changed Se7en-owned repo under `/root/.openclaw/workspace/repos`, run `git status --short --branch`, review diffs, check for secrets, commit, and push. Never force-push. If unable to push, add `Writeback Needed` to daily memory.
+15. For any changed Se7en-owned repo under `/root/.openclaw/workspace/repos`, run `git status --short --branch`, review diffs, check for secrets, commit with a typed message that follows `AGENTS.md`, and push. Never force-push. If unable to push, add `Writeback Needed` to daily memory.
 
 Final response should include:
 

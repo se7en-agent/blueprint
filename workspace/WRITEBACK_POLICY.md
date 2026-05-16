@@ -61,3 +61,5 @@ Then review the diff, check for secrets, commit, and push.
 ## Commit Rule
 
 Any Se7en-owned repo changed by writeback must be reviewed, secret-checked, committed, and pushed promptly. If pushing fails, add a `Writeback Needed` entry to today's memory.
+
+Commit messages must follow the typed Commit Message Policy in `AGENTS.md` unless an upstream repository documents a stricter convention.

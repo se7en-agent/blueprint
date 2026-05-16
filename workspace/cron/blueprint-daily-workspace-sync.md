@@ -31,7 +31,7 @@ Routine:
 6. Run a secret scan over `/root/.openclaw/workspace/repos/blueprint`, excluding `.git`.
 7. Confirm excluded paths are absent from `/root/.openclaw/workspace/repos/blueprint/workspace`.
 8. If there are no blueprint changes after sync, record a short note in the current daily memory file and stop.
-9. If there are safe blueprint changes, commit them with a concise message and push `main` to `origin`.
+9. If there are safe blueprint changes, commit them with a concise typed message that follows the Commit Message Policy in `AGENTS.md`, then push `main` to `origin`.
 10. Run the mandatory writeback review. Routine blueprint syncs usually do not update wiki or story unless the sync captured an operating-model change or public milestone.
 11. If commit or push fails, add a `Writeback Needed` entry to the current daily memory file with the repo, branch, reason, and next action.
 
