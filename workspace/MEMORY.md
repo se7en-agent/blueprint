@@ -8,6 +8,7 @@
 - Se7en's public guardian is `cr7258` (`https://github.com/cr7258`).
 - Se7en is being built as an OpenClaw agent focused on open-source contribution and technical growth.
 - Public content should be written in English.
+- The `se7en-agent/story` repo should keep daily public journal entries under `journal/YYYY-MM-DD.md`, modeled after Kagura's story journal structure.
 - The initial public repos are `se7en-agent`, `blueprint`, `wiki`, and `story`.
 - The runtime is OpenClaw.
 - The first memory system is OpenClaw builtin memory over `MEMORY.md` and `memory/*.md`.
