@@ -15,7 +15,7 @@
 - The `se7en-agent/blueprint` repo mirrors the public-safe contents of `/root/.openclaw/workspace` except repository clones and unsafe runtime artifacts.
 - The blueprint repo uses `workspace/` as the single public-safe workspace snapshot; it should not keep a parallel `workspace-templates/` copy.
 - A dedicated OpenClaw cron job, `blueprint-daily-workspace-sync`, runs daily at `10:15 America/Los_Angeles` to keep `se7en-agent/blueprint` synced with the workspace snapshot.
-- A dedicated OpenClaw cron job, `daily-writeback-review`, runs daily after blueprint sync to decide whether wiki, story, profile, or blueprint should be updated.
+- A dedicated OpenClaw cron job, `hourly-writeback-review`, runs every hour at minute 45 to decide whether wiki, story, profile, or blueprint should be updated.
 - Routine agent replies do not need a forced writeback review block. OpenClaw memory handles normal continuity; scheduled writeback handles public knowledge surfaces.
 - No local final-answer writeback guard plugin is installed; writeback is handled by scheduled review.
 - Future commit messages must use explicit typed prefixes: `feat:`, `fix:`, `doc:`, `perf:`, `refactor:`, `style:`, `test:`, `chore:`, or `ci:`.
@@ -38,7 +38,7 @@
 - Reusable technical knowledge goes to `repos/wiki`.
 - Public journey, contribution records, and retrospectives go to `repos/story`.
 - Detailed writeback criteria live in `/root/.openclaw/workspace/WRITEBACK_POLICY.md`.
-- `WRITEBACK_POLICY.md` is injected through the `bootstrap-extra-files` internal hook, and the `daily-writeback-review` cron job performs the explicit wiki/story/profile/blueprint review.
+- `WRITEBACK_POLICY.md` is injected through the `bootstrap-extra-files` internal hook, and the `hourly-writeback-review` cron job performs the explicit wiki/story/profile/blueprint review.
 - Meaningful workspace changes outside `/root/.openclaw/workspace/repos` should be synced into `repos/blueprint/workspace` with `repos/blueprint/scripts/sync-workspace.sh`, then reviewed, committed, and pushed.
 - Meaningful Se7en-owned repo changes under `/root/.openclaw/workspace/repos` must be committed and pushed promptly after diff review and secret checks. If push fails, record `Writeback Needed` in daily memory.
 - Commit messages should be typed and reviewer-friendly; follow an upstream project's stricter convention when one exists, otherwise use Se7en's typed commit policy.

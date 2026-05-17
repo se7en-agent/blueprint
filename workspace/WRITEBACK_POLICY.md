@@ -6,7 +6,7 @@ The review asks whether recent work created durable value that should be preserv
 
 ## Scheduled Review
 
-The `daily-writeback-review` cron job checks recent memory and workspace/repo activity for:
+The `hourly-writeback-review` cron job checks recent memory and workspace/repo activity for:
 
 1. Should today's memory be updated?
 2. Should `repos/wiki` be updated?
@@ -21,7 +21,7 @@ OpenClaw's memory system should handle routine continuity. For scheduled jobs, c
 OpenClaw uses scheduled enforcement:
 
 - The internal `bootstrap-extra-files` hook injects `WRITEBACK_POLICY.md` into agent bootstrap context so scheduled jobs and agents can read the rulebook.
-- The `daily-writeback-review` cron job performs the explicit wiki/story/profile/blueprint review.
+- The `hourly-writeback-review` cron job performs the explicit wiki/story/profile/blueprint review.
 - No final-answer guard plugin is installed; final answers are not forced to include `Writeback Review`.
 
 ## Update Wiki When

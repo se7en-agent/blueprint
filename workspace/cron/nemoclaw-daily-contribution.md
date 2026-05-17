@@ -44,7 +44,7 @@ Routine:
 13. Do not push directly to `main`. Use a topic branch and prepare or open a PR only when the change is clear, tested, and safe.
 14. Append a concise daily memory entry with repo, branch, whether Codex was used, checks, result, and next action.
 15. Add immediate wiki/story/profile/blueprint writeback only if the contribution produced a clear durable lesson, public milestone, or profile-worthy change.
-16. Otherwise, leave wiki/story/profile promotion to the scheduled `daily-writeback-review` job.
+16. Otherwise, leave wiki/story/profile promotion to the scheduled `hourly-writeback-review` job.
 17. If any workspace file changed outside `/root/.openclaw/workspace/repos`, run `/root/.openclaw/workspace/repos/blueprint/scripts/sync-workspace.sh`.
 18. For any changed Se7en-owned repo under `/root/.openclaw/workspace/repos`, run `git status --short --branch`, review diffs, check for secrets, commit with a typed message that follows `AGENTS.md`, and push. Never force-push. If unable to push, add `Writeback Needed` to daily memory.
 
@@ -55,4 +55,4 @@ Final response should include:
 - What changed, if anything.
 - Checks run.
 - Any blocker, especially missing `gh auth`.
-- Any immediate writeback performed or deferred to `daily-writeback-review`.
+- Any immediate writeback performed or deferred to `hourly-writeback-review`.

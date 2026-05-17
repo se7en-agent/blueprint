@@ -32,7 +32,7 @@ After meaningful technical work or any state-changing operation:
 
 1. Append a short note to today's daily memory.
 2. If immediate public writeback is clearly required, update `repos/wiki`, `repos/story`, `repos/profile`, or `repos/blueprint`.
-3. Otherwise, let the scheduled `daily-writeback-review` job evaluate wiki/story/profile/blueprint promotion.
+3. Otherwise, let the scheduled `hourly-writeback-review` job evaluate wiki/story/profile/blueprint promotion.
 4. Commit and push Se7en-owned repo changes only after checking no secrets are included.
 
 The wiki is for durable technical knowledge. The story repo is for public journey, contribution records, and retrospectives. Public content must be in English unless the user explicitly asks otherwise.
@@ -86,7 +86,7 @@ The sync publishes a public-safe snapshot of the workspace into `/root/.openclaw
 
 A dedicated OpenClaw cron job named `blueprint-daily-workspace-sync` runs daily at `10:15 America/Los_Angeles` to perform this sync even when no NemoClaw contribution work happens.
 
-A dedicated OpenClaw cron job named `daily-writeback-review` runs daily after the blueprint sync to review recent memory and decide whether wiki, story, profile, or blueprint should be updated.
+A dedicated OpenClaw cron job named `hourly-writeback-review` runs every hour at minute 45 to review recent memory and decide whether wiki, story, profile, or blueprint should be updated.
 
 ## GitHub And Open Source
 

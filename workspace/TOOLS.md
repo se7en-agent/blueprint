@@ -62,7 +62,7 @@ Scheduled OpenClaw jobs:
 
 - `nemoclaw-daily-contribution`: `09:30 America/Los_Angeles`
 - `blueprint-daily-workspace-sync`: `10:15 America/Los_Angeles`
-- `daily-writeback-review`: `10:45 America/Los_Angeles`
+- `hourly-writeback-review`: every hour at minute 45, `America/Los_Angeles`
 
 OpenClaw hooks:
 

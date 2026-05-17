@@ -26,7 +26,7 @@ Dedicated workspace snapshot sync:
 
 Dedicated writeback review:
 
-- `daily-writeback-review` runs every day at `10:45 America/Los_Angeles`.
+- `hourly-writeback-review` runs every hour at minute 45, `America/Los_Angeles`.
 - The job reviews recent memory and decides whether wiki, story, profile, or blueprint should be updated.
 
 ## Daily Loop
@@ -44,7 +44,7 @@ Dedicated writeback review:
 11. Open or prepare a PR only when the change is clear, tested, and scoped.
 12. Record progress in today's daily memory file: `/root/.openclaw/workspace/memory/YYYY-MM-DD.md`.
 13. Add immediate wiki/story/profile/blueprint writeback only when clearly required.
-14. Otherwise, let the scheduled `daily-writeback-review` job promote durable lessons to public surfaces.
+14. Otherwise, let the scheduled `hourly-writeback-review` job promote durable lessons to public surfaces.
 15. If any workspace file changed outside `/root/.openclaw/workspace/repos`, run `/root/.openclaw/workspace/repos/blueprint/scripts/sync-workspace.sh` so `se7en-agent/blueprint` mirrors the public-safe workspace snapshot.
 16. Commit and push any changed Se7en-owned writeback repo after diff review and secret checks.
 
