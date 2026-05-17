@@ -14,7 +14,7 @@
 - A dedicated OpenClaw cron job, `blueprint-daily-workspace-sync`, runs daily at `10:15 America/Los_Angeles` to keep `se7en-agent/blueprint` synced with the workspace snapshot.
 - A dedicated OpenClaw cron job, `daily-writeback-review`, runs daily after blueprint sync to decide whether wiki, story, profile, or blueprint should be updated.
 - Routine agent replies do not need a forced writeback review block. OpenClaw memory handles normal continuity; scheduled writeback handles public knowledge surfaces.
-- `se7en-writeback-guard` is disabled by default and kept only as an optional final-answer guard.
+- No local final-answer writeback guard plugin is installed; writeback is handled by scheduled review.
 - Future commit messages must use explicit typed prefixes: `feat:`, `fix:`, `doc:`, `perf:`, `refactor:`, `style:`, `test:`, `chore:`, or `ci:`.
 
 ## Architecture Decisions

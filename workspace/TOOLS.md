@@ -58,7 +58,6 @@ Scheduled OpenClaw jobs:
 OpenClaw hooks:
 
 - Internal hook `bootstrap-extra-files` injects `WRITEBACK_POLICY.md` into agent bootstrap.
-- Local plugin `se7en-writeback-guard`: `/root/.openclaw/workspace/plugins/writeback-guard` (installed but disabled by default)
 - Scheduled writeback is handled by cron rather than a final-answer hook.
 
 ## Writeback Targets

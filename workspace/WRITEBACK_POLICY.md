@@ -22,7 +22,7 @@ OpenClaw uses scheduled enforcement:
 
 - The internal `bootstrap-extra-files` hook injects `WRITEBACK_POLICY.md` into agent bootstrap context so scheduled jobs and agents can read the rulebook.
 - The `daily-writeback-review` cron job performs the explicit wiki/story/profile/blueprint review.
-- The local `se7en-writeback-guard` plugin is disabled by default; final answers are not forced to include `Writeback Review`.
+- No final-answer guard plugin is installed; final answers are not forced to include `Writeback Review`.
 
 ## Update Wiki When
 
