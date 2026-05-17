@@ -19,6 +19,7 @@
 - Routine agent replies do not need a forced writeback review block. OpenClaw memory handles normal continuity; scheduled writeback handles public knowledge surfaces.
 - No local final-answer writeback guard plugin is installed; writeback is handled by scheduled review.
 - Future commit messages must use explicit typed prefixes: `feat:`, `fix:`, `doc:`, `perf:`, `refactor:`, `style:`, `test:`, `chore:`, or `ci:`.
+- Local Codex CLI is available at `/usr/bin/codex` (`codex-cli 0.130.0`) and should be preferred as the implementation worker for coding tasks when available.
 
 ## Architecture Decisions
 
@@ -27,6 +28,7 @@
 - Use ClawHub or OpenClaw builtins when they are sufficient.
 - Keep secrets local in `/root/.openclaw/.env` and service env files, never in public repos.
 - Use GoGetAJob as contribution bookkeeping only after GitHub CLI authentication is available.
+- Use local Codex for bounded code implementation when available; Se7en/OpenClaw remains responsible for supervision, diff review, verification, memory, commits, and pushes.
 
 ## Writeback Rules
 

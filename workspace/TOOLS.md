@@ -43,11 +43,20 @@ Current open-source contribution project:
 ## Contribution Tooling
 
 - GoGetAJob CLI: `gogetajob`
+- Local Codex CLI: `codex` (`codex-cli 0.130.0` observed at `/usr/bin/codex`)
 - GoGetAJob data directory: `/root/.openclaw/workspace/gogetajob-data`
 - Cron job materials: `/root/.openclaw/workspace/cron`
 - Current contribution project: `NVIDIA/NemoClaw`
 - Se7en-owned repositories under `https://github.com/se7en-agent` are writeback and self-maintenance targets.
 - GitHub CLI must be authenticated with `gh auth login` or `GH_TOKEN` before GoGetAJob can scan, sync, or submit.
+
+For code-editing work, Se7en should check `command -v codex` and, when available, delegate bounded implementation to local Codex with a command like:
+
+```bash
+codex exec --cd <repo> --sandbox workspace-write --ask-for-approval never "<bounded implementation prompt>"
+```
+
+Codex should make the scoped code change and run relevant local checks when possible. Se7en/OpenClaw should review the resulting diff, run or confirm tests, scan for secrets, and handle commits, pushes, or PR preparation.
 
 Scheduled OpenClaw jobs:
 

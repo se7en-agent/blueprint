@@ -17,6 +17,7 @@ Scope lock:
 - Do not chase PR count. Prefer one useful, small, verified contribution.
 - If Se7en-owned writeback repos change, review diffs, check for secrets, commit, and push promptly. If pushing fails, record `Writeback Needed` in the current daily memory file.
 - If workspace files outside `/root/.openclaw/workspace/repos` changed, sync them into the public-safe blueprint snapshot with `/root/.openclaw/workspace/repos/blueprint/scripts/sync-workspace.sh`, then review, secret-check, commit, and push `se7en-agent/blueprint`.
+- For code implementation work, prefer delegating the edit to local Codex when `command -v codex` succeeds. Se7en must still supervise, review diffs, verify tests, and handle commits or PRs.
 
 Date organization:
 
@@ -36,13 +37,16 @@ Routine:
 6. Inspect NemoClaw issues, docs, tests, recent commits, and local TODOs.
 7. Pick at most one small NemoClaw candidate for today: docs, tests, clear bug fix, or developer tooling.
 8. If there is no good candidate, append a short `NO_GOOD_CANDIDATE` note with reasons to the current daily memory file.
-9. If there is a good candidate, create a topic branch, make the smallest useful change, run relevant checks, and commit only that scoped change using the Commit Message Policy in `AGENTS.md` unless NemoClaw documents a stricter convention.
-10. Do not push directly to `main`. Use a topic branch and prepare or open a PR only when the change is clear, tested, and safe.
-11. Append a concise daily memory entry with repo, branch, checks, result, and next action.
-12. Add immediate wiki/story/profile/blueprint writeback only if the contribution produced a clear durable lesson, public milestone, or profile-worthy change.
-13. Otherwise, leave wiki/story/profile promotion to the scheduled `daily-writeback-review` job.
-14. If any workspace file changed outside `/root/.openclaw/workspace/repos`, run `/root/.openclaw/workspace/repos/blueprint/scripts/sync-workspace.sh`.
-15. For any changed Se7en-owned repo under `/root/.openclaw/workspace/repos`, run `git status --short --branch`, review diffs, check for secrets, commit with a typed message that follows `AGENTS.md`, and push. Never force-push. If unable to push, add `Writeback Needed` to daily memory.
+9. If there is a good candidate, create a topic branch.
+10. If the candidate requires code edits, check `command -v codex`. When available, delegate the smallest useful change to local Codex with `codex exec --cd /root/.openclaw/workspace/projects/nemoclaw/upstream --sandbox workspace-write --ask-for-approval never "<bounded implementation prompt>"`. Tell Codex not to commit, push, open PRs, or modify unrelated files.
+11. If Codex is unavailable or fails, make the change directly only when the change remains clear and verifiable; otherwise record the blocker.
+12. Review the resulting diff, run relevant checks, and commit only the scoped change using the Commit Message Policy in `AGENTS.md` unless NemoClaw documents a stricter convention.
+13. Do not push directly to `main`. Use a topic branch and prepare or open a PR only when the change is clear, tested, and safe.
+14. Append a concise daily memory entry with repo, branch, whether Codex was used, checks, result, and next action.
+15. Add immediate wiki/story/profile/blueprint writeback only if the contribution produced a clear durable lesson, public milestone, or profile-worthy change.
+16. Otherwise, leave wiki/story/profile promotion to the scheduled `daily-writeback-review` job.
+17. If any workspace file changed outside `/root/.openclaw/workspace/repos`, run `/root/.openclaw/workspace/repos/blueprint/scripts/sync-workspace.sh`.
+18. For any changed Se7en-owned repo under `/root/.openclaw/workspace/repos`, run `git status --short --branch`, review diffs, check for secrets, commit with a typed message that follows `AGENTS.md`, and push. Never force-push. If unable to push, add `Writeback Needed` to daily memory.
 
 Final response should include:
 

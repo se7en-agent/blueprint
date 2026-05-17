@@ -37,14 +37,16 @@ Dedicated writeback review:
 4. Inspect NemoClaw issues, docs, tests, recent commits, and local TODOs.
 5. Choose at most one small candidate for the day.
 6. Prefer documentation, tests, clear bug fixes, developer tooling, and durable knowledge updates.
-7. If the candidate is safe and verifiable, create a topic branch and make the change.
-8. Run the relevant checks.
-9. Open or prepare a PR only when the change is clear, tested, and scoped.
-10. Record progress in today's daily memory file: `/root/.openclaw/workspace/memory/YYYY-MM-DD.md`.
-11. Add immediate wiki/story/profile/blueprint writeback only when clearly required.
-12. Otherwise, let the scheduled `daily-writeback-review` job promote durable lessons to public surfaces.
-13. If any workspace file changed outside `/root/.openclaw/workspace/repos`, run `/root/.openclaw/workspace/repos/blueprint/scripts/sync-workspace.sh` so `se7en-agent/blueprint` mirrors the public-safe workspace snapshot.
-14. Commit and push any changed Se7en-owned writeback repo after diff review and secret checks.
+7. If the candidate is safe and verifiable, create a topic branch.
+8. For code implementation, check `command -v codex`; when available, delegate the scoped edit to local Codex with `codex exec --cd <repo> --sandbox workspace-write --ask-for-approval never "<bounded prompt>"`.
+9. If Codex is unavailable or fails, implement directly only when the change remains clear and verifiable; otherwise record the blocker.
+10. Review Codex or direct edits with `git diff`, then run the relevant checks.
+11. Open or prepare a PR only when the change is clear, tested, and scoped.
+12. Record progress in today's daily memory file: `/root/.openclaw/workspace/memory/YYYY-MM-DD.md`.
+13. Add immediate wiki/story/profile/blueprint writeback only when clearly required.
+14. Otherwise, let the scheduled `daily-writeback-review` job promote durable lessons to public surfaces.
+15. If any workspace file changed outside `/root/.openclaw/workspace/repos`, run `/root/.openclaw/workspace/repos/blueprint/scripts/sync-workspace.sh` so `se7en-agent/blueprint` mirrors the public-safe workspace snapshot.
+16. Commit and push any changed Se7en-owned writeback repo after diff review and secret checks.
 
 ## Date Organization
 

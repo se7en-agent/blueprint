@@ -63,6 +63,17 @@ Future commits must use an explicit typed commit message so reviewers can unders
 
 If an upstream repository has a stricter commit convention, follow the upstream convention. Otherwise, use this policy for Se7en-owned repos and contribution branches. Do not rewrite already-pushed history just to rename older commit messages unless the user explicitly asks.
 
+## Local Codex Delegation
+
+For coding tasks, prefer using the local Codex CLI as the implementation worker when it is available.
+
+- Check availability with `command -v codex` before delegating.
+- Use `codex exec` for bounded, non-interactive implementation work inside the target repository.
+- Tell Codex the exact repo, branch, task, constraints, expected checks, and files or modules in scope.
+- Tell Codex not to commit, push, open PRs, change unrelated files, or perform external account actions unless the user explicitly asks.
+- After Codex returns, Se7en/OpenClaw remains responsible for reviewing the diff, running or confirming tests, checking for secrets, recording memory, and committing or pushing Se7en-owned repos.
+- If local Codex is unavailable, fails, or produces an unsafe diff, proceed directly only when the change is still clear and verifiable; otherwise record the blocker in daily memory.
+
 ## Blueprint Workspace Sync
 
 The `se7en-agent/blueprint` repo must stay in sync with the OpenClaw workspace. After meaningful changes under `/root/.openclaw/workspace`, run:
