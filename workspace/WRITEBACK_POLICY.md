@@ -1,12 +1,12 @@
 # Writeback Policy
 
-Every task or operation must end with a writeback review.
+Writeback is handled primarily by scheduled review, not by forcing every agent reply to include a fixed review block.
 
-The review asks whether the work created durable value that should be preserved in Se7en's public or private knowledge surfaces. The answer may be "no", but the review must happen.
+The review asks whether recent work created durable value that should be preserved in Se7en's public or private knowledge surfaces. The answer may be "no", but the scheduled review must happen.
 
-## Required Review
+## Scheduled Review
 
-Before finishing any task, check:
+The `daily-writeback-review` cron job checks recent memory and workspace/repo activity for:
 
 1. Should today's memory be updated?
 2. Should `repos/wiki` be updated?
@@ -14,14 +14,15 @@ Before finishing any task, check:
 4. Should `repos/blueprint` be synced?
 5. Should `repos/profile` be updated?
 
-For state-changing work, record the decision in `/root/.openclaw/workspace/memory/YYYY-MM-DD.md`.
+OpenClaw's memory system should handle routine continuity. For scheduled jobs, contribution work, operating-rule changes, deployments, PRs, and other meaningful state changes, add concise daily memory notes in `/root/.openclaw/workspace/memory/YYYY-MM-DD.md`.
 
 ## Enforcement
 
-OpenClaw enforces this policy in two layers:
+OpenClaw uses scheduled enforcement:
 
-- The internal `bootstrap-extra-files` hook injects `WRITEBACK_POLICY.md` into agent bootstrap context.
-- The local `se7en-writeback-guard` plugin registers only `before_agent_finalize`. When a natural final answer omits a writeback review, the plugin asks the model for one bounded revision before finalizing.
+- The internal `bootstrap-extra-files` hook injects `WRITEBACK_POLICY.md` into agent bootstrap context so scheduled jobs and agents can read the rulebook.
+- The `daily-writeback-review` cron job performs the explicit wiki/story/profile/blueprint review.
+- The local `se7en-writeback-guard` plugin is disabled by default; final answers are not forced to include `Writeback Review`.
 
 ## Update Wiki When
 

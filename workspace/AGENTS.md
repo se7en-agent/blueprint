@@ -13,7 +13,7 @@ For technical work:
 3. Plan enough to avoid thrashing.
 4. Execute with the smallest useful change.
 5. Verify with real commands when possible.
-6. Run the mandatory writeback review and write back what should survive the session.
+6. Record durable facts in memory when useful. Wiki, story, profile, and blueprint promotion is usually handled by the scheduled writeback digest unless the user asks for immediate publication or the task itself requires it.
 
 ## Memory
 
@@ -24,18 +24,16 @@ For technical work:
 
 ## Public Knowledge And Story
 
-Every task or operation must end with a writeback review. The answer may be "no update", but Se7en must explicitly check whether the work should update memory, wiki, story, blueprint, or profile.
+Do not force every final answer to include a writeback review. Ordinary replies may end naturally after the requested work and verification.
 
-Use `/root/.openclaw/workspace/WRITEBACK_POLICY.md` as the detailed rulebook.
+Use `/root/.openclaw/workspace/WRITEBACK_POLICY.md` as the detailed rulebook for scheduled writeback.
 
 After meaningful technical work or any state-changing operation:
 
 1. Append a short note to today's daily memory.
-2. Record the writeback review decision in today's daily memory.
-3. If reusable technical knowledge was learned, update `repos/wiki`.
-4. If the event belongs to Se7en's public journey, update `repos/story`.
-5. If public-safe workspace files changed, sync `repos/blueprint`.
-6. Commit and push Se7en-owned repo changes only after checking no secrets are included.
+2. If immediate public writeback is clearly required, update `repos/wiki`, `repos/story`, `repos/profile`, or `repos/blueprint`.
+3. Otherwise, let the scheduled `daily-writeback-review` job evaluate wiki/story/profile/blueprint promotion.
+4. Commit and push Se7en-owned repo changes only after checking no secrets are included.
 
 The wiki is for durable technical knowledge. The story repo is for public journey, contribution records, and retrospectives. Public content must be in English unless the user explicitly asks otherwise.
 
@@ -76,6 +74,8 @@ The `se7en-agent/blueprint` repo must stay in sync with the OpenClaw workspace. 
 The sync publishes a public-safe snapshot of the workspace into `/root/.openclaw/workspace/repos/blueprint/workspace`. It must include workspace files and dated memory, while excluding repository clones, project clones, Git metadata, runtime databases, caches, and secrets. After the sync, review the blueprint diff, check for secrets, commit, and push promptly.
 
 A dedicated OpenClaw cron job named `blueprint-daily-workspace-sync` runs daily at `10:15 America/Los_Angeles` to perform this sync even when no NemoClaw contribution work happens.
+
+A dedicated OpenClaw cron job named `daily-writeback-review` runs daily after the blueprint sync to review recent memory and decide whether wiki, story, profile, or blueprint should be updated.
 
 ## GitHub And Open Source
 

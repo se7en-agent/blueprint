@@ -39,8 +39,8 @@ Routine:
 9. If there is a good candidate, create a topic branch, make the smallest useful change, run relevant checks, and commit only that scoped change using the Commit Message Policy in `AGENTS.md` unless NemoClaw documents a stricter convention.
 10. Do not push directly to `main`. Use a topic branch and prepare or open a PR only when the change is clear, tested, and safe.
 11. Append a concise daily memory entry with repo, branch, checks, result, and next action.
-12. Run the mandatory writeback review and record whether wiki, story, blueprint, profile, or memory should be updated.
-13. Update memory/wiki/story only if there is a meaningful durable lesson or public contribution event.
+12. Add immediate wiki/story/profile/blueprint writeback only if the contribution produced a clear durable lesson, public milestone, or profile-worthy change.
+13. Otherwise, leave wiki/story/profile promotion to the scheduled `daily-writeback-review` job.
 14. If any workspace file changed outside `/root/.openclaw/workspace/repos`, run `/root/.openclaw/workspace/repos/blueprint/scripts/sync-workspace.sh`.
 15. For any changed Se7en-owned repo under `/root/.openclaw/workspace/repos`, run `git status --short --branch`, review diffs, check for secrets, commit with a typed message that follows `AGENTS.md`, and push. Never force-push. If unable to push, add `Writeback Needed` to daily memory.
 
@@ -51,4 +51,4 @@ Final response should include:
 - What changed, if anything.
 - Checks run.
 - Any blocker, especially missing `gh auth`.
-- Writeback review result for memory, wiki, story, blueprint, and profile.
+- Any immediate writeback performed or deferred to `daily-writeback-review`.

@@ -53,12 +53,13 @@ Scheduled OpenClaw jobs:
 
 - `nemoclaw-daily-contribution`: `09:30 America/Los_Angeles`
 - `blueprint-daily-workspace-sync`: `10:15 America/Los_Angeles`
+- `daily-writeback-review`: `10:45 America/Los_Angeles`
 
 OpenClaw hooks:
 
 - Internal hook `bootstrap-extra-files` injects `WRITEBACK_POLICY.md` into agent bootstrap.
-- Local plugin `se7en-writeback-guard`: `/root/.openclaw/workspace/plugins/writeback-guard`
-- Plugin typed hook: `before_agent_finalize`
+- Local plugin `se7en-writeback-guard`: `/root/.openclaw/workspace/plugins/writeback-guard` (installed but disabled by default)
+- Scheduled writeback is handled by cron rather than a final-answer hook.
 
 ## Writeback Targets
 

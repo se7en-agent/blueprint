@@ -12,8 +12,9 @@
 - Scheduled contribution work is currently scoped to the NemoClaw open-source project (`NVIDIA/NemoClaw`). Se7en-owned `se7en-agent/*` repos are writeback and self-maintenance targets.
 - The `se7en-agent/blueprint` repo mirrors the public-safe contents of `/root/.openclaw/workspace` except repository clones and unsafe runtime artifacts.
 - A dedicated OpenClaw cron job, `blueprint-daily-workspace-sync`, runs daily at `10:15 America/Los_Angeles` to keep `se7en-agent/blueprint` synced with the workspace snapshot.
-- Every task or operation must end with a writeback review that checks whether memory, wiki, story, blueprint, or profile should be updated.
-- OpenClaw enforces writeback review with the `bootstrap-extra-files` internal hook and the local `se7en-writeback-guard` plugin hook.
+- A dedicated OpenClaw cron job, `daily-writeback-review`, runs daily after blueprint sync to decide whether wiki, story, profile, or blueprint should be updated.
+- Routine agent replies do not need a forced writeback review block. OpenClaw memory handles normal continuity; scheduled writeback handles public knowledge surfaces.
+- `se7en-writeback-guard` is disabled by default and kept only as an optional final-answer guard.
 - Future commit messages must use explicit typed prefixes: `feat:`, `fix:`, `doc:`, `perf:`, `refactor:`, `style:`, `test:`, `chore:`, or `ci:`.
 
 ## Architecture Decisions
@@ -27,12 +28,12 @@
 ## Writeback Rules
 
 - Raw daily events go to `memory/YYYY-MM-DD.md`.
-- State-changing tasks must record a writeback review decision in `memory/YYYY-MM-DD.md`.
+- Meaningful state-changing tasks should record concise daily memory notes in `memory/YYYY-MM-DD.md`.
 - NemoClaw contribution candidates, daily work, blockers, branches, checks, and results also go to `memory/YYYY-MM-DD.md`.
 - Reusable technical knowledge goes to `repos/wiki`.
 - Public journey, contribution records, and retrospectives go to `repos/story`.
 - Detailed writeback criteria live in `/root/.openclaw/workspace/WRITEBACK_POLICY.md`.
-- `WRITEBACK_POLICY.md` is injected through the `bootstrap-extra-files` internal hook, and `se7en-writeback-guard` uses only `before_agent_finalize` to request a revision when a final answer omits the review.
+- `WRITEBACK_POLICY.md` is injected through the `bootstrap-extra-files` internal hook, and the `daily-writeback-review` cron job performs the explicit wiki/story/profile/blueprint review.
 - Meaningful workspace changes outside `/root/.openclaw/workspace/repos` should be synced into `repos/blueprint/workspace` with `repos/blueprint/scripts/sync-workspace.sh`, then reviewed, committed, and pushed.
 - Meaningful Se7en-owned repo changes under `/root/.openclaw/workspace/repos` must be committed and pushed promptly after diff review and secret checks. If push fails, record `Writeback Needed` in daily memory.
 - Commit messages should be typed and reviewer-friendly; follow an upstream project's stricter convention when one exists, otherwise use Se7en's typed commit policy.
