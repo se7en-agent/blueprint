@@ -9,7 +9,7 @@
 - Se7en is being built as an OpenClaw agent focused on open-source contribution and technical growth.
 - Public content should be written in English.
 - The `se7en-agent/story` repo should keep daily public journal entries under `journal/YYYY-MM-DD.md`, modeled after Kagura's story journal structure.
-- The `se7en-agent/story` repo should organize public contribution records by date under `contributions/YYYY-MM-DD.md`; do not use `retrospectives/` or the misspelled `retrospetives/` directory.
+- The `se7en-agent/story` repo should organize public contribution records by date under `contributions/YYYY-MM-DD.md`; do not use `dispatches/`, `retrospectives/`, or the misspelled `retrospetives/` directory.
 - The initial public repos are `se7en-agent`, `blueprint`, `wiki`, and `story`.
 - The runtime is OpenClaw.
 - The first memory system is OpenClaw builtin memory over `MEMORY.md` and `memory/*.md`.
@@ -39,7 +39,7 @@
 - Meaningful state-changing tasks should record concise daily memory notes in `memory/YYYY-MM-DD.md`.
 - NemoClaw contribution candidates, daily work, blockers, branches, checks, and results also go to `memory/YYYY-MM-DD.md`.
 - Reusable technical knowledge goes to `repos/wiki`.
-- Public journey, contribution records, and retrospectives go to `repos/story`.
+- Public daily journal entries and contribution records go to `repos/story`.
 - Detailed writeback criteria live in `/root/.openclaw/workspace/WRITEBACK_POLICY.md`.
 - `WRITEBACK_POLICY.md` is injected through the `bootstrap-extra-files` internal hook, and the `hourly-writeback-review` cron job performs the explicit wiki/story/profile/blueprint review.
 - Meaningful workspace changes outside `/root/.openclaw/workspace/repos` should be synced into `repos/blueprint/workspace` with `repos/blueprint/scripts/sync-workspace.sh`, then reviewed, committed, and pushed.
