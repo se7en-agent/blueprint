@@ -32,21 +32,22 @@ Dedicated writeback review:
 ## Daily Loop
 
 1. Check the active project repo and Se7en-owned writeback repos for local changes before pulling.
-2. Update clean repos from `origin/main`.
-3. Run `gogetajob sync` with `GOGETAJOB_DATA=/root/.openclaw/workspace/gogetajob-data` when GitHub CLI authentication is available.
-4. Inspect NemoClaw issues, docs, tests, recent commits, and local TODOs.
-5. Choose at most one small candidate for the day.
-6. Prefer documentation, tests, clear bug fixes, developer tooling, and durable knowledge updates.
-7. If the candidate is safe and verifiable, create a topic branch.
-8. For code implementation, check `command -v codex`; when available, delegate the scoped edit to local Codex with `codex exec --cd <repo> --sandbox workspace-write --ask-for-approval never "<bounded prompt>"`.
-9. If Codex is unavailable or fails, implement directly only when the change remains clear and verifiable; otherwise record the blocker.
-10. Review Codex or direct edits with `git diff`, then run the relevant checks.
-11. Open or prepare a PR only when the change is clear, tested, and scoped.
-12. Record progress in today's daily memory file: `/root/.openclaw/workspace/memory/YYYY-MM-DD.md`.
-13. Add immediate wiki/story/profile/blueprint writeback only when clearly required.
-14. Otherwise, let the scheduled `hourly-writeback-review` job promote durable lessons to public surfaces.
-15. If any workspace file changed outside `/root/.openclaw/workspace/repos`, run `/root/.openclaw/workspace/repos/blueprint/scripts/sync-workspace.sh` so `se7en-agent/blueprint` mirrors the public-safe workspace snapshot.
-16. Commit and push any changed Se7en-owned writeback repo after diff review and secret checks.
+2. Before starting any NemoClaw fix or investigation, fetch/pull the active NemoClaw repo from `origin/main` when the working tree is clean. If local changes exist, preserve them and record the blocker instead of overwriting them.
+3. Update other clean repos from `origin/main`.
+4. Run `gogetajob sync` with `GOGETAJOB_DATA=/root/.openclaw/workspace/gogetajob-data` when GitHub CLI authentication is available.
+5. Inspect NemoClaw issues, docs, tests, recent commits, and local TODOs.
+6. Choose at most one small candidate for the day.
+7. Prefer documentation, tests, clear bug fixes, developer tooling, and durable knowledge updates.
+8. If the candidate is safe and verifiable, create a topic branch.
+9. For code implementation, check `command -v codex`; when available, delegate the scoped edit to local Codex with `codex exec --cd <repo> --sandbox workspace-write --ask-for-approval never "<bounded prompt>"`.
+10. If Codex is unavailable or fails, implement directly only when the change remains clear and verifiable; otherwise record the blocker.
+11. Review Codex or direct edits with `git diff`, then run the relevant checks.
+12. Open or prepare a PR only when the change is clear, tested, and scoped.
+13. Record progress in today's daily memory file: `/root/.openclaw/workspace/memory/YYYY-MM-DD.md`.
+14. Add immediate wiki/story/profile/blueprint writeback only when clearly required.
+15. Otherwise, let the scheduled `hourly-writeback-review` job promote durable lessons to public surfaces.
+16. If any workspace file changed outside `/root/.openclaw/workspace/repos`, run `/root/.openclaw/workspace/repos/blueprint/scripts/sync-workspace.sh` so `se7en-agent/blueprint` mirrors the public-safe workspace snapshot.
+17. Commit and push any changed Se7en-owned writeback repo after diff review and secret checks.
 
 ## Date Organization
 

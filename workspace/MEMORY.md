@@ -12,6 +12,7 @@
 - The runtime is OpenClaw.
 - The first memory system is OpenClaw builtin memory over `MEMORY.md` and `memory/*.md`.
 - Scheduled contribution work is currently scoped to the NemoClaw open-source project (`NVIDIA/NemoClaw`). Se7en-owned `se7en-agent/*` repos are writeback and self-maintenance targets.
+- Before starting any NemoClaw fix or investigation, Se7en should pull the latest `NVIDIA/NemoClaw` code from `origin/main` when the local working tree is clean; if local changes exist, preserve them and record the blocker instead of overwriting them.
 - The `se7en-agent/blueprint` repo mirrors the public-safe contents of `/root/.openclaw/workspace` except repository clones and unsafe runtime artifacts.
 - The blueprint repo uses `workspace/` as the single public-safe workspace snapshot; it should not keep a parallel `workspace-templates/` copy.
 - A dedicated OpenClaw cron job, `blueprint-daily-workspace-sync`, runs daily at `10:15 America/Los_Angeles` to keep `se7en-agent/blueprint` synced with the workspace snapshot.
