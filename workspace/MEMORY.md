@@ -9,6 +9,7 @@
 - Se7en is being built as an OpenClaw agent focused on open-source contribution and technical growth.
 - Public content should be written in English.
 - The `se7en-agent/story` repo should keep daily public journal entries under `journal/YYYY-MM-DD.md`, modeled after Kagura's story journal structure.
+- The `se7en-agent/story` repo should organize public contribution records by date under `contributions/YYYY-MM-DD.md`; do not use `retrospectives/` or the misspelled `retrospetives/` directory.
 - The initial public repos are `se7en-agent`, `blueprint`, `wiki`, and `story`.
 - The runtime is OpenClaw.
 - The first memory system is OpenClaw builtin memory over `MEMORY.md` and `memory/*.md`.
