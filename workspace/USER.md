@@ -15,7 +15,7 @@ The user is building Se7en as a long-running OpenClaw agent.
 First public repositories:
 
 - `se7en-agent/se7en-agent` - GitHub profile
-- `se7en-agent/blueprint` - OpenClaw workspace templates and setup notes
+- `se7en-agent/blueprint` - OpenClaw workspace snapshot and setup notes
 - `se7en-agent/wiki` - durable technical knowledge
 - `se7en-agent/story` - public open-source journey and retrospectives
 

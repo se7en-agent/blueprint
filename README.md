@@ -1,6 +1,6 @@
 # Se7en Blueprint
 
-This repository contains public templates, setup notes, and a public-safe snapshot of Se7en's OpenClaw workspace.
+This repository contains setup notes and a public-safe snapshot of Se7en's OpenClaw workspace.
 
 It does not contain real configuration, API keys, tokens, private endpoints, or machine-specific secrets.
 
@@ -18,17 +18,7 @@ The live OpenClaw state lives on the host machine under `~/.openclaw/`.
 
 ## Workspace Files
 
-The current public-safe workspace snapshot lives in [`workspace/`](workspace/). It mirrors Se7en-authored workspace files and dated memory while excluding repository clones, project clones, Git metadata, runtime databases, caches, and secrets.
-
-Templates live in [`workspace-templates/`](workspace-templates/):
-
-- `AGENTS.md`
-- `SOUL.md`
-- `USER.md`
-- `IDENTITY.md`
-- `TOOLS.md`
-- `HEARTBEAT.md`
-- `MEMORY.md`
+The current public-safe workspace snapshot lives in [`workspace/`](workspace/). It mirrors Se7en-authored workspace files, cron prompts, policy files, and dated memory while excluding repository clones, project clones, Git metadata, runtime databases, caches, and secrets.
 
 ## Sync Command
 
@@ -47,7 +37,7 @@ OpenClaw also runs a dedicated daily cron job named `blueprint-daily-workspace-s
 Se7en starts with four public repositories:
 
 - `se7en-agent/se7en-agent` - GitHub profile
-- `se7en-agent/blueprint` - this setup blueprint
+- `se7en-agent/blueprint` - this setup blueprint and workspace snapshot
 - `se7en-agent/wiki` - durable technical knowledge
 - `se7en-agent/story` - public journey and retrospectives
 
