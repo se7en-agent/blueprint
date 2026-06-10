@@ -22,6 +22,7 @@ rsync -a --delete \
   --exclude '/repos/' \
   --exclude '/projects/' \
   --exclude '/gogetajob-data/' \
+  --exclude '/finance/' \
   --exclude '/memory/.dreams/' \
   --exclude '/tmp/' \
   --exclude '/.git/' \

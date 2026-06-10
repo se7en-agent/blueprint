@@ -21,6 +21,7 @@ The sync excludes:
 - `repos/` because those are independent Git repositories.
 - `projects/` because those are external contribution clones.
 - `gogetajob-data/` because it is a runtime database.
+- `finance/` because ad-hoc financial models, market data, and trading-analysis artifacts are private workspace material, not public setup blueprint content.
 - `memory/.dreams/` because it is generated recall state.
 - `.git/` because Git metadata is not workspace content.
 - Local secret files and SQLite databases.
