@@ -28,6 +28,8 @@ rsync -a --delete \
   --exclude '/tmp/' \
   --exclude '/.git/' \
   --exclude '/.env' \
+  --exclude '*.log' \
+  --exclude '*.pid' \
   --exclude '/*.sqlite' \
   --exclude '/*.sqlite-*' \
   "${workspace_root}/" "${destination}/"
