@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+MODEL="tiny"
+LANGUAGE=""
+OUTPUT_FORMAT="txt"
+OUTPUT_DIR=""
+INPUT=""
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --model)
+      MODEL="${2:-tiny}"; shift 2 ;;
+    --language)
+      LANGUAGE="${2:-}"; shift 2 ;;
+    --output_format)
+      OUTPUT_FORMAT="${2:-txt}"; shift 2 ;;
+    --output_dir)
+      OUTPUT_DIR="${2:-}"; shift 2 ;;
+    --task)
+      # faster-whisper wrapper only transcribes; accept for compatibility.
+      shift 2 ;;
+    --*)
+      # Ignore unknown Whisper CLI flags for OpenClaw fallback compatibility.
+      if [[ $# -ge 2 && "${2:-}" != --* ]]; then shift 2; else shift 1; fi ;;
+    *)
+      INPUT="$1"; shift ;;
+  esac
+done
+
+if [[ -z "$INPUT" ]]; then
+  echo "usage: whisper [--model tiny|base|small|...] [--language zh|en|...] [--output_format txt] [--output_dir DIR] FILE" >&2
+  exit 2
+fi
+
+/root/.openclaw/workspace/.venvs/stt/bin/python /root/.openclaw/workspace/bin/whisper_faster.py \
+  --file "$INPUT" --model "$MODEL" ${LANGUAGE:+--language "$LANGUAGE"} \
+  ${OUTPUT_DIR:+--output-dir "$OUTPUT_DIR"} --output-format "$OUTPUT_FORMAT"
