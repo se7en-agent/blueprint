@@ -27,6 +27,7 @@ rsync -a --delete \
   --exclude '/.venvs/' \
   --exclude '/memory/.dreams/' \
   --exclude '/tmp/' \
+  --exclude '/.openclaw/' \
   --exclude '/.git/' \
   --exclude '/.env' \
   --exclude '*.log' \
