@@ -81,6 +81,7 @@ if memory_dir.is_dir():
                     output.append("## Private Excluded Cron\n")
                     output.append("\n")
                     output.append("- Private cron activity existed in local memory but is intentionally omitted from the public blueprint snapshot.\n")
+                    output.append("\n")
                     inserted_placeholder = True
                     continue
 
