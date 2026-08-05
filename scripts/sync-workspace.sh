@@ -109,13 +109,14 @@ if memory_dir.is_dir():
             output.append(line)
 
         collapsed = []
+        seen_private_placeholder_in_section = False
         for line in output:
-            if (
-                line == "- Private excluded cron activity was reviewed locally but is intentionally not published in the blueprint snapshot.\n"
-                and collapsed
-                and collapsed[-1] == line
-            ):
-                continue
+            if line.startswith("## "):
+                seen_private_placeholder_in_section = False
+            if line == "- Private excluded cron activity was reviewed locally but is intentionally not published in the blueprint snapshot.\n":
+                if seen_private_placeholder_in_section:
+                    continue
+                seen_private_placeholder_in_section = True
             collapsed.append(line)
 
         path.write_text("".join(collapsed), encoding="utf-8")
