@@ -95,6 +95,7 @@ if memory_dir.is_dir():
                 line = private_reference.sub("a private excluded cron note", line)
                 line = line.replace("private a private excluded cron note", "a private excluded cron note")
                 line = line.replace("private/a private excluded cron note", "a private excluded cron note")
+                line = line.replace("a a private excluded cron note", "a private excluded cron note")
 
             if private_detail.search(line):
                 if line.startswith("- "):
