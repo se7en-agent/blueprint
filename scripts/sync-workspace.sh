@@ -107,7 +107,17 @@ if memory_dir.is_dir():
 
             output.append(line)
 
-        path.write_text("".join(output), encoding="utf-8")
+        collapsed = []
+        for line in output:
+            if (
+                line == "- Private excluded cron activity was reviewed locally but is intentionally not published in the blueprint snapshot.\n"
+                and collapsed
+                and collapsed[-1] == line
+            ):
+                continue
+            collapsed.append(line)
+
+        path.write_text("".join(collapsed), encoding="utf-8")
 PY
 
 echo "Synced ${workspace_root} -> ${destination}"
