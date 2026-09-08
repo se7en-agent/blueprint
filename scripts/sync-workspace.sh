@@ -45,7 +45,7 @@ root = Path(sys.argv[1])
 memory_dir = root / "memory"
 
 private_section_heading = re.compile(
-    r"^## .*?(zhaoyi|603986|daily[- ]prediction|private[- ]excluded[- ]cron|investment prediction)",
+    r"^## .*?(zhaoyi|兆易|603986|daily[- ]prediction|private[- ]excluded[- ]cron|investment prediction)",
     re.IGNORECASE,
 )
 private_detail = re.compile(
